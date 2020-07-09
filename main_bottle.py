@@ -21,6 +21,7 @@ def message_in():
 def do_encrypt():
     message = request.forms.get('message')
     url = captcha()
+    link = "localhost:8080/message/{url}".format(url=url)
     global ciphertext
     
     # Functions called from 'sitecrypt_bottle'
@@ -29,15 +30,16 @@ def do_encrypt():
     sheet = load_sheet("otp.txt")
     ciphertext = encrypt(message, sheet)
     save_file("encrypted.txt", ciphertext)  # Can this file be saved to the Bottle server?
-    ciphertext = load_file("encrypted.txt")
-
-    link = "localhost:8080/message/{url}".format(url=url)
-    def copyFunc():
-        pc.copy(link)
+    ciphertext = load_file("encrypted.txt")    
     
           
     return '''
         <table style="width:50%", border=1px solid black>
+                <%
+                   def copyFunc():
+                      pc.copy(link)
+                   end
+                %>
             <tr>
                 <th>Encrypted message</th>
                 <th>Sharable link</th>
@@ -85,7 +87,7 @@ def show_message(url):
 # ERROR
 @error('500')
 def error500(error):
-    return 'ERROR 500: Dude, you fucked up. Go back and edit your code.'
+    return 'ERROR 500: Dude. Go back and edit your code.'
 
 
 

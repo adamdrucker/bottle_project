@@ -51,8 +51,8 @@ def save_file(filename, data):
 # ///////////////
 
 ''' This function takes in a plaintext message and an OTP sheet from 
-    the ones generated in the first menu option. Any characters not in
-    the ALPHABET/ALPHAUP/PUNC variables are added as is to the CIPHERTEXT variable.
+    the ones generated in the first function. Any characters not in
+    the ALPHABET/ALPHAUP/PUNC variables are added as-is to the CIPHERTEXT variable.
     The ENCRYPTED value is derived from the index of each character in the ALPHABET
     plus the value in the 0-based corresponding position of the OTP text file.
     This is then modulus divided by the length of the string and the corresponding

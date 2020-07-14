@@ -1,5 +1,5 @@
 from bottle import route, run, post, get, request, template, error
-from sitecrypt_bottle import *
+from crypt import *
 from captcha_bot import captcha
 import pyperclip as pc
 import os

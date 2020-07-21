@@ -16,6 +16,11 @@
 			</tr>           
 		</table>
 		<button onclick=copyFunc("{{link}}")>Copy link</button>
-
+		
+		<!-- POST method is not allowed, ROUTE and GET return a "?" in the URL -->
+		<form action="/message" method="post">
+			<input value="Encrypt another message" type="submit">
+		</form>
 	</body>
+	
 </html>

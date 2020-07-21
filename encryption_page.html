@@ -18,9 +18,11 @@
 		<button onclick=copyFunc("{{link}}")>Copy link</button>
 		
 		<!-- POST method is not allowed, ROUTE and GET return a "?" in the URL -->
-		<form action="/message" method="post">
+		<!-- The form below currently places the button under the COPY button-->
+		<form action="/message" method="get" >
 			<input value="Encrypt another message" type="submit">
 		</form>
+		
+		
 	</body>
-	
 </html>

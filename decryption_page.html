@@ -12,6 +12,11 @@
 				<td>{{message}}</td>                
 			</tr>
 		</table>
-
+		
+		<!-- POST method is not allowed, ROUTE and GET return a "?" in the URL -->
+		<form action="/message" method="get">
+			<input value="Encrypt a message" type="submit">
+		</form>
+		
 	</body>
 </html>

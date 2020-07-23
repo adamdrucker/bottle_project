@@ -1,0 +1,2 @@
+# Adding *.pyc to .gitignore
+*.pyc

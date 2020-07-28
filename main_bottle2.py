@@ -5,6 +5,10 @@ import pyperclip as pc
 import os
 
 
+key = Fernet.generate_key()
+f = Fernet(key)
+
+
 def copyFunc(link):
     pc.copy(link)
 
@@ -13,24 +17,22 @@ def copyFunc(link):
 def message_in():
     return template("form.html")
 
+
 @post('/encrypted')
 def do_encrypt():
     message = request.forms.get('message').encode()
     url = captcha()
     link = "localhost:8080/message/{url}".format(url=url)
-    global ciphertext
     pc_url = pc.copy(link)
     
     # Encrypt functions below
     # *** 'message' passed as argument ***
     # -------------------------------------
-    key = Fernet.generate_key()
-    f = Fernet(key)
     token = f.encrypt(message)
-
+    global token
     # -------------------------------------
 
-    variables = {"message": ciphertext, "link": link, "url": url, "pc_url": pc_url}
+    variables = {"message": token, "link": link, "url": url, "pc_url": pc_url}
 
     return template("encryption_page.html", variables)
 
@@ -40,7 +42,8 @@ def show_message(url):
 
     # Decrypt functions below
     # ------------------------------------
-
+    dec = f.decrypt(token)
+    plaintext = dec.decode('utf8')
 
 
     # ------------------------------------
@@ -48,6 +51,7 @@ def show_message(url):
     variables = {"message": plaintext}
     
     return template("decryption_page.html", variables)
+
 
 
 

@@ -5,6 +5,7 @@
 ## This project currently requires the installation of the following modules:
   * pyperclip `pip install pyperclip` (considering incorporating JavaScript)
   * cryptography `pip install cryptography` 
+  * Crypto `pip install pycrypto` (currently in testing)
 
 ## How to test the code:
 

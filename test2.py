@@ -7,9 +7,18 @@ from Crypto.Cipher import Blowfish
 from Crypto.Hash import MD5
 
 
+''' As noted in further comments below, these encryption methods work fine
+    as they currently are in this script, but the plaintext messages have
+    to be a multiple of the block size for each algorithm. I need to figure
+    out how to ensure that each of these functions will perform the prescribed
+    encryption on data of any length. (padding?)
+'''
+
+
 def decorate():
     print("=" * 34)
 
+# -----------
 
 def md5_hash():
     # Create a new instance of the hash object

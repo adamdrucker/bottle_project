@@ -26,6 +26,11 @@ md5_hash()
 
 # -----------
 
+''' The current AES encryption mode requires the inpur string to be a multiple
+    of 16 in length -- need to figure out how to ensure that a string of
+    anything length is processed in chunks until completion
+'''
+
 def aes_encrypt():
     # Create new AES cipher
     # An IV can be used, but 'MODE_ECB' ignores it
@@ -51,11 +56,16 @@ aes_encrypt()
 
 # -----------
 
+''' The current Blowfish encryption mode requires the inpur string to be a
+    multiple of 8 in length -- need to figure out how to ensure that a
+    string of anything length is processed in chunks until completion
+'''
+
 # Encrypt works fine, decrypt coming out in bytes
 def blowfish_encrypt():
     # This prints a Blowfish encrypted message
     bs = Blowfish.block_size    # 8 bits
-    key = "An abritrarily long key"
+    key = "An arbitrarily long key"
     iv = Random.new().read(bs)
     obj = Blowfish.new(key, Blowfish.MODE_CBC, iv)
     message = b"What the"
@@ -64,9 +74,11 @@ def blowfish_encrypt():
     print("Blowfish encryption: %s" % ciphertext)
     time.sleep(1)
     print("Decrypting Blowfish...")
+    time.sleep(1)
     
     # Not working, printing byte string
-    dec = obj.decrypt(ciphertext)
+    obj2 = Blowfish.new(key, Blowfish.MODE_CBC, iv)
+    dec = obj2.decrypt(ciphertext).decode('utf-8')
     #plaintext = dec.decode()
     print(dec)
     decorate()
@@ -81,11 +93,14 @@ def fernet_encryption():
     f = Fernet(key)
     message = b"Poo poo potty"
     token = f.encrypt(message)
+    
     print("Fernet encryption: %s" % token)
-    dec = f.decrypt(token)
-    plaintext = dec.decode('utf8')
+    time.sleep(1)
     print("Decrypting Fernet...")
     time.sleep(1)
+    
+    dec = f.decrypt(token)
+    plaintext = dec.decode('utf8')
     print(plaintext)
     decorate()
 fernet_encryption()

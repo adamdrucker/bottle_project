@@ -5,7 +5,7 @@ from captcha_bot import captcha
 import pyperclip as pc
 import os
 
-
+# Remove this?
 # Fernet (symmetric) key generation
 key = Fernet.generate_key()
 f = Fernet(key)
@@ -37,6 +37,7 @@ def do_encrypt():
     # *** 'message' passed as argument ***
     # -------------------------------------
 
+    # Remove this?
     # Fernet
     token = f.encrypt(message)
     global token
@@ -54,6 +55,7 @@ def do_encrypt():
 @get('/message/<url>')
 def show_message(url):
 
+    # Remove this?
     # Decrypt functions below
     # ------------------------------------
 

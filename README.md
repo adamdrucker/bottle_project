@@ -14,6 +14,7 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 * The project is dependent on the main Bottle file: 'bottle.py' (already in this repository).
 * 'main_bottle2.py' is the primary working file currently, this file will be ran as a python script and will start a server listening on __port 8080__.
 * This can be accessed in a browser at '_localhost:8080/message_' - this will bring you to the input prompt for a message at the beginning of the process.
+* 'main_bottle.py' was originally used with the legacy encryption method in 'crypt.py' -- this will no longer be used but is retained here for reference
 
 ## How to test the current encryption engines:
 

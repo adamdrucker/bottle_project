@@ -186,7 +186,7 @@ def aes_encrypt(plaintext):
     # The decode() method below converts from byte string to UTF8
     aes_decrypt = obj2.decrypt(ciphertext).decode('utf-8')
     
-    return ciphertext, aes_decrypt  # Returns both as a tuple, need to be unpacked and separated
+    return ciphertext, aes_decrypt  # Returns both as a tuple, must be unpacked when called
 
 
 # // Blowfish Encryption //
@@ -213,7 +213,7 @@ def blowfish_encrypt(plaintext):
     blowfish_decrypt = obj2.decrypt(ciphertext).decode('utf-8')
     #plaintext = dec.decode()
 
-    return ciphertext, blowfish_decrypt  # Returns both as a tuple, need to be unpacked and separated
+    return ciphertext, blowfish_decrypt  # Returns both as a tuple, must be unpacked when called
 
 
 # // Fernet Encryption //
@@ -237,7 +237,7 @@ def fernet_encrypt(plaintext):
     dec = f.decrypt(ciphertext)
     fernet_decrypt = dec.decode('utf8')
     
-    return ciphertext, fernet_decrypt  # Returns both as a tuple, need to be unpacked and separated
+    return ciphertext, fernet_decrypt  # Returns both as a tuple, must be unpacked when called
     
 
     

@@ -13,12 +13,10 @@
     <br>
         <label for="Encryption">Choose an algorithm:</label>
 	<br>
-	<select name="Encryption" id="enc">
-		<!-- Values below are currently placeholders -->
-		<option value="fernet">Fernet</option>
-		<option value="aes">AES</option>
-		<option value="3des">3DES</option> <!-- Listed as "DES3 -->
-		<option value="blowfish">Blowfish</option>
+	<select name="Encryption" method="GET" id="enc">
+		<option value="{{algorithms[0]}}">{{algorithms[0]}}</option>
+		<option value="{{algorithms[1]}}">{{algorithms[1]}}</option>
+		<option value="{{algorithms[2]}}">{{algorithms[2]}}</option>
 	</select>
 		
 	</body>

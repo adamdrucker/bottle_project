@@ -2,51 +2,60 @@ from bottle import route, run, post, get, request, template, error
 from cryptography.fernet import Fernet
 from Crypto import Cipher
 from captcha_bot import captcha
+from crypt import *
 import pyperclip as pc
 import os
 
-# Remove this?
-# Fernet (symmetric) key generation
-key = Fernet.generate_key()
-f = Fernet(key)
-
-''' Fernet symmetric encryption can be found at:
-    https://cryptography.io/en/latest/fernet/
-'''
 
 # Function to enable copy button
 def copyFunc(link):
     pc.copy(link)
 
 
-# Entry page
+# Entry page - 'http://localhost:8080/message'
 @route('/message')
 def message_in():
-    return template("form.html")
+
+    algorithms = ['AES', 'Blowfish' , 'Fernet']
+
+    variables = {"algorithms": algorithms}
+
+    # Returns the input form prior to encryption
+    return template("form.html", variables)
+
 
 
 # Page displayed after encryption
 @post('/encrypted')
 def do_encrypt():
+
+    # Input taken from user, encoded for encryption
     message = request.forms.get('message').encode()
+
+    # This generates a randomized path for the URL for each message encrypted
     url = captcha()
     link = "localhost:8080/message/{url}".format(url=url)
+
+    # Enabled the copy button to grab the URL
     pc_url = pc.copy(link)
+
+    
     
     # Encrypt functions below
-    # *** 'message' passed as argument ***
+    # // 'message' passed as argument
     # -------------------------------------
 
-    # Remove this?
-    # Fernet
-    token = f.encrypt(message)
-    global token
+    # ** HOW DO I GET DIFFERENT DROP DOWN MENU SELECTIONS IN HTML
+    # ** TO CALL DIFFERENT PYTHON FUNCTIONS? I.E.:
+    # if getElementById = "AES":
+    #   aes_encrypt(message)
 
     
     # -------------------------------------
 
 
-    variables = {"message": token, "link": link, "url": url, "pc_url": pc_url}
+    # Vars passed into HTML
+    variables = {"link": link, "url": url, "pc_url": pc_url}
 
     return template("encryption_page.html", variables)
 
@@ -56,17 +65,18 @@ def do_encrypt():
 def show_message(url):
 
     # Remove this?
+    
     # Decrypt functions below
     # ------------------------------------
 
-    # Fernet
-    dec = f.decrypt(token)
-    plaintext = dec.decode('utf8')
+    
 
 
     # ------------------------------------
 
 
+    # Vars passed into HTML
+    # plaintext variable doesn't currently exist
     variables = {"message": plaintext}
     
     return template("decryption_page.html", variables)

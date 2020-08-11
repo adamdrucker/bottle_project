@@ -9,15 +9,15 @@
 			<label for="message">Type your message below</label><br>
             <input name="message" type="text" />
             <input value="Encrypt message" type="submit" />
-        </form>
+        
     <br>
         <label for="Encryption">Choose an algorithm:</label>
 	<br>
-	<select name="Encryption" method="GET" id="enc">
-		<option value="{{algorithms[0]}}">{{algorithms[0]}}</option>
-		<option value="{{algorithms[1]}}">{{algorithms[1]}}</option>
-		<option value="{{algorithms[2]}}">{{algorithms[2]}}</option>
-	</select>
-		
+			<select name="enc" method="post" id="enc">
+				<option value="{{algorithms[0]}}">{{algorithms[0]}}</option>
+				<option value="{{algorithms[1]}}">{{algorithms[1]}}</option>
+				<option value="{{algorithms[2]}}">{{algorithms[2]}}</option>
+			</select>
+		</form>
 	</body>
 </html>

@@ -7,6 +7,8 @@ import pyperclip as pc
 import os
 
 
+algorithms = ['AES', 'Blowfish' , 'Fernet']
+
 # Function to enable copy button
 def copyFunc(link):
     pc.copy(link)
@@ -14,10 +16,9 @@ def copyFunc(link):
 
 # Entry page - 'http://localhost:8080/message'
 @route('/message')
-def message_in():
+def message_in():    
 
-    algorithms = ['AES', 'Blowfish' , 'Fernet']
-
+    # Items for drop down list
     variables = {"algorithms": algorithms}
 
     # Returns the input form prior to encryption
@@ -45,17 +46,29 @@ def do_encrypt():
     # // 'message' passed as argument
     # -------------------------------------
 
-    # ** HOW DO I GET DIFFERENT DROP DOWN MENU SELECTIONS IN HTML
-    # ** TO CALL DIFFERENT PYTHON FUNCTIONS? I.E.:
-    # if getElementById = "AES":
-    #   aes_encrypt(message)
+    # This successfully displays the encryption method selected from the dropdown
+    e_method = request.forms.get('enc')
 
+    # The "encryption-name_cipher" variables contain the encrypted message,
+    # but are currently never used
+    # Not ideal using globals, but it works for the time being
+    if e_method == 'AES':
+        aes_cipher, aes_plain = aes_encrypt(message)
+    elif e_method == 'Blowfish':
+        blowfish_cipher, blowfish_plain = blowfish_encrypt(message)
+    elif e_method == 'Fernet':
+        fernet_cipher, fernet_plain = fernet_encrypt(message)
+
+    global e_method
+    global aes_plain
+    global blowfish_plain
+    global fernet_plain
     
     # -------------------------------------
 
 
     # Vars passed into HTML
-    variables = {"link": link, "url": url, "pc_url": pc_url}
+    variables = {"link": link, "url": url, "pc_url": pc_url, "e_method": e_method}
 
     return template("encryption_page.html", variables)
 
@@ -69,7 +82,12 @@ def show_message(url):
     # Decrypt functions below
     # ------------------------------------
 
-    
+    if e_method == 'AES':
+        plaintext = aes_plain
+    elif e_method == 'Blowfish':
+        plaintext = blowfish_plain
+    elif e_method == 'Fernet':
+        plaintext = fernet_plain
 
 
     # ------------------------------------

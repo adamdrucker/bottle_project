@@ -204,7 +204,7 @@ def blowfish_encrypt(plaintext):
     # This appears to allow for plaintext input of any length
     obj = Blowfish.new(key, Blowfish.MODE_CFB, iv)
     
-    message = plaintext.encode()
+    message = plaintext  # Removed .decode() from here to make it work in the site
     
     ciphertext = obj.encrypt(message)
     
@@ -230,7 +230,7 @@ def fernet_encrypt(plaintext):
     key = Fernet.generate_key()
     f = Fernet(key)
     
-    message = plaintext.encode()
+    message = plaintext  # Removed .decode() from here to make it work in the site
     
     ciphertext = f.encrypt(message)
         

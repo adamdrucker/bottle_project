@@ -48,12 +48,17 @@ def do_encrypt():
     # // 'message' passed as argument
     # -------------------------------------
 
+    # Not ideal using globals, but it works for the time being
+    global e_method
+    global aes_plain
+    global blowfish_plain
+    global fernet_plain
+
     # This successfully displays the encryption method selected from the dropdown
     e_method = request.forms.get('enc')
 
     # The "encryption-name_cipher" variables contain the encrypted message,
     # but are currently never used
-    # Not ideal using globals, but it works for the time being
     if e_method == 'AES':
         aes_cipher, aes_plain = aes_encrypt(message)
     elif e_method == 'Blowfish':
@@ -61,10 +66,7 @@ def do_encrypt():
     elif e_method == 'Fernet':
         fernet_cipher, fernet_plain = fernet_encrypt(message)
 
-    global e_method
-    global aes_plain
-    global blowfish_plain
-    global fernet_plain
+
     
     # -------------------------------------
 

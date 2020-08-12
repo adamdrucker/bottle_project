@@ -7,7 +7,7 @@ import pyperclip as pc
 import os
 
 
-algorithms = ['AES', 'Blowfish' , 'Fernet']
+
 
 # Function to enable copy button
 def copyFunc(link):
@@ -17,6 +17,8 @@ def copyFunc(link):
 # Entry page - 'http://localhost:8080/message'
 @route('/message')
 def message_in():    
+
+    algorithms = ['AES', 'Blowfish' , 'Fernet']
 
     # Items for drop down list
     variables = {"algorithms": algorithms}

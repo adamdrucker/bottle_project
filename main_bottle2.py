@@ -7,6 +7,17 @@ import pyperclip as pc
 import os
 
 
+''' The captcha_bot module imports a small program that generates a string of six pseudo-random
+    characters that is only used in the URL for the encrypted method.
+
+    Fernet encryption is used via the cryptographyt module for Python.
+
+    AES and Blowfish are used via the Crypto moduel for Python.
+
+    Pyperclip is a module used to enable the copy button on the encryption page.
+
+'''
+
 
 
 # Function to enable copy button

@@ -10,14 +10,15 @@
             <input name="message" type="text" />
             <input value="Encrypt message" type="submit" />
         
-    <br>
-        <label for="Encryption">Choose an algorithm:</label>
-	<br>
+			<p>
+			<label for="Encryption">Choose an algorithm:</label>
+			<br>
 			<select name="enc" method="post" id="enc">
 				<option value="{{algorithms[0]}}">{{algorithms[0]}}</option>
 				<option value="{{algorithms[1]}}">{{algorithms[1]}}</option>
 				<option value="{{algorithms[2]}}">{{algorithms[2]}}</option>
 			</select>
+			</p>
 		</form>
 	</body>
 </html>

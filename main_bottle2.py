@@ -19,7 +19,6 @@ import os
 '''
 
 
-
 # Function to enable copy button
 def copyFunc(link):
     pc.copy(link)
@@ -57,7 +56,7 @@ def do_encrypt():
     
     # Encrypt functions below
     # // 'message' passed as argument
-    # -------------------------------------
+    # -------------------------------------  
 
     # Not ideal using globals, but it works for the time being
     global e_method
@@ -77,13 +76,15 @@ def do_encrypt():
     elif e_method == 'Fernet':
         fernet_cipher, fernet_plain = fernet_encrypt(message)
 
-
     
     # -------------------------------------
 
 
     # Vars passed into HTML
     variables = {"link": link, "url": url, "pc_url": pc_url, "e_method": e_method}
+
+    global foo
+    foo = variables
 
     return template("encryption_page.html", variables)
 
@@ -96,7 +97,7 @@ def show_message(url):
     
     # Decrypt functions below
     # ------------------------------------
-
+    
     if e_method == 'AES':
         plaintext = aes_plain
     elif e_method == 'Blowfish':

@@ -145,6 +145,10 @@ def decrypt(ciphertext, sheet):
 # ////////////////
 
 def md5_hash(plaintext):
+
+
+     ''' https://en.wikipedia.org/wiki/MD5 '''
+                
     
     # Create a new instance of the hash object
     hash = MD5.new()
@@ -165,6 +169,8 @@ def md5_hash(plaintext):
 # ///////////////////
 
 def aes_encrypt(plaintext):
+
+    ''' https://en.wikipedia.org/wiki/Advanced_Encryption_Standard '''
         
     # Create new AES cipher
     # An IV can be used, but 'MODE_ECB' ignores it
@@ -193,6 +199,8 @@ def aes_encrypt(plaintext):
 # ////////////////////////
 
 def blowfish_encrypt(plaintext):
+
+    ''' https://en.wikipedia.org/wiki/Blowfish_(cipher) '''
     
     bs = Blowfish.block_size    # 8 bits
     

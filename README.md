@@ -15,10 +15,14 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 * The project is dependent on the main Bottle file: 'bottle.py' (already in this repository)
 * 'main.py' is the primary working file, this file will be ran as a Python script and will start a server listening on __port 8080__
 * This can be accessed in a browser at '_localhost:8080/message_' - this will bring you to the input prompt for a message at the beginning of the process
-* 'main_bottle.py' was originally used with the legacy encryption method in 'crypt.py' -- this will no longer be used but is retained here for reference
 * 'crypt.py' contains two sections:
   * The first part is referred to as "Legacy encryption code" -- in terms on my project, this was the first method used to perform encryption and it was based on a basic Caeser cipher that was modified :arrow_right: <sub>_this is no longer in use but is kept in the file for reference_</sub>
   * The second part is the set of cryptographic functions that are being usesd in 'main.py' -- AES, Blowfish and Fernet (there is also a MD5 function, but that is not being used)
+  * This file also contains information regarding the libraries used, how the different functions operate, and links to external sources for the different types of algorithms
+* There are three (3) HTML files related to the project:
+  * 'form.html' :arrow_right: the starting point of the website
+  * 'encryption_page.html' :arrow_right: the page displayed after an algorithm is selected and a message is entered for encryption
+  * 'decryption_page.html' :arrow_right: the page displayed after the generated URL is accessed and the message is decrypted
 
 ## How to test the current encryption engines:
 
@@ -30,4 +34,11 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
   * There are built-in messages for testing which will display ciphertext, then decrypt and display plaintext
 * 'test3.py' serves to test as a file that imports these functions from 'crypt.py' as a module and encrpyts a pre-defined string
 
+## Testing the main project
 
+* 'main.py' is the primary file - it imports cryptographic modules and functions, and lays out the Bottle structure through the use of decorators
+  * The program begins when accessing '_localhost:8080/message_' as prescribed above
+* An encryption algorithm can be chosen from the drop down menu
+* This will generate a local URL which, when pasted back into a new tab, will perform decryption of the encrypted message
+  * Currently, the encrypted message is not displayed anywhere, it's stored in a variable resulting from the encryption process
+* Other functionality includes the ability to copy the generated URL via a button, and another button that will allow the user to encrypt another message (by bringing them back to the starting page)

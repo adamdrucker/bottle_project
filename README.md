@@ -1,20 +1,24 @@
 # Current files for Bottle project
 
-<h3>Encrypting a message, generating a URL for sharing, and then decrypting once viewed</h3>
+### Encrypting a message, generating a URL for sharing, and then decrypting once viewed
 
 This project has been written and tested using Python 3.5.3 in IDLE on a Raspberry Pi 3, Debian version 9.13
 
 ## This project currently requires the installation of the following modules:
-  * pyperclip `pip install pyperclip` (considering incorporating JavaScript)
+  * Bottle `pip install bottle` (the main Bottle file can be found in this repo)
+  * pyperclip `pip install pyperclip`
   * cryptography `pip install cryptography` 
-  * Crypto `pip install pycrypto` (currently in testing)
+  * Crypto `pip install pycrypto`
 
 ## How to test the code:
 
-* The project is dependent on the main Bottle file: 'bottle.py' (already in this repository).
-* 'main_bottle2.py' is the primary working file currently, this file will be ran as a python script and will start a server listening on __port 8080__.
-* This can be accessed in a browser at '_localhost:8080/message_' - this will bring you to the input prompt for a message at the beginning of the process.
+* The project is dependent on the main Bottle file: 'bottle.py' (already in this repository)
+* 'main.py' is the primary working file, this file will be ran as a Python script and will start a server listening on __port 8080__
+* This can be accessed in a browser at '_localhost:8080/message_' - this will bring you to the input prompt for a message at the beginning of the process
 * 'main_bottle.py' was originally used with the legacy encryption method in 'crypt.py' -- this will no longer be used but is retained here for reference
+* 'crypt.py' contains two sections:
+  * The first part is referred to as "Legacy encryption code" -- in terms on my project, this was the first method used to perform encryption and it was based on a basic Caeser cipher that was modified :arrow_right: <sub>_this is no longer in use but is kept in the file for reference_</sub>
+  * The second part is the set of cryptographic functions that are being usesd in 'main.py' -- AES, Blowfish and Fernet (there is also a MD5 function, but that is not being used)
 
 ## How to test the current encryption engines:
 

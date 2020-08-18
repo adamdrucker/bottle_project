@@ -10,7 +10,7 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
   * cryptography `pip install cryptography` 
   * Crypto `pip install pycrypto`
 
-## How to test the code:
+## Project information:
 
 * The project is dependent on the main Bottle file: 'bottle.py' (already in this repository)
 * 'main.py' is the primary working file, this file will be ran as a Python script and will start a server listening on __port 8080__
@@ -22,10 +22,12 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 
 ## How to test the current encryption engines:
 
-* 'crypt.py' will now serve as the module from which cryptographic functions will be imported from
-* 'test1.py' contains a rudimentary message encryption script
-* This can be ran as a regular .py file; it will prompt you for input, generate a pseudo-randomly generated token via 'captcha_bot.py', display your message encrypted via Fernet encryption, then decrypt and display the plaintext result
-* 'test2.py' contains functions for MD5, AES, Blowfish and Fernet - once pycrypto has been installed this file can be ran as-is to test the functionality of these algorithms -- there are built-in messages for testing which will display ciphertext, then decrypt and display plaintext
-* 'test3.py' serves to test as a file that imports these functions from 'crypt.py' as a module
+* 'crypt.py' serves as the module from which cryptographic functions will be imported from
+* 'captcha_bot.py' is a small script that generates a short string of pseudo-randomly generated lower and upper letters, and numbers
+* 'test1.py' contains a rudimentary message encryption script to test the __Fernet__ module
+  * This can be ran as a regular .py file; it will prompt you for input, generate a pseudo-randomly generated token via 'captcha_bot.py', display your message encrypted via Fernet encryption, then decrypt and display the plaintext result
+* 'test2.py' contains functions for MD5, AES, Blowfish and Fernet - once pycrypto has been installed this file can be ran as-is to test the functionality of these algorithms
+  * There are built-in messages for testing which will display ciphertext, then decrypt and display plaintext
+* 'test3.py' serves to test as a file that imports these functions from 'crypt.py' as a module and encrpyts a pre-defined string
 
 

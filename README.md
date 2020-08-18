@@ -5,10 +5,10 @@
 This project has been written and tested using Python 3.5.3 in IDLE on a Raspberry Pi 3, Debian version 9.13
 
 ## This project currently requires the installation of the following modules:
-  * Bottle :right_arrow: `pip install bottle` (the main Bottle file can be found in this repo)
-  * pyperclip :right_arrow: `pip install pyperclip`
-  * cryptography :right_arrow: `pip install cryptography` 
-  * Crypto right_arrow: `pip install pycrypto`
+  * Bottle :arrow_right: `pip install bottle` (the main Bottle file can be found in this repo)
+  * pyperclip :arrow_right: `pip install pyperclip`
+  * cryptography :arrow_right: `pip install cryptography` 
+  * Crypto :arrow_right: `pip install pycrypto`
 
 ## Project information:
 

@@ -31,7 +31,7 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 * 'test1.py' contains a rudimentary message encryption script to test the __Fernet__ module
   * This can be ran as a regular .py file; it will prompt you for input, generate a pseudo-randomly generated token via 'captcha_bot.py', display your message encrypted via Fernet encryption, then decrypt and display the cleartext result
 * 'test2.py' contains functions for MD5, AES, Blowfish and Fernet - once pycrypto has been installed this file can be ran as-is to test the functionality of these algorithms
-  * There are built-in messages for testing which will display ciphertext, then decrypt and display plaintext
+  * There are built-in messages for testing which will display ciphertext, then decrypt and display cleartext
 * 'test3.py' serves to test as a file that imports these functions from 'crypt.py' as a module and encrpyts a pre-defined string
 
 ## Testing the main project

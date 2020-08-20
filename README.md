@@ -17,7 +17,7 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 * This can be accessed in a browser at '_localhost:8080/message_' - this will bring you to the input prompt for a message at the beginning of the process
 * 'crypt.py' contains two sections:
   * The first part is referred to as "Legacy encryption code" -- in terms of my project, this was the first method used to perform encryption and it was based on a basic Caeser cipher that was modified :arrow_right: <sub>_this is no longer in use but is kept in the file for reference_</sub>
-  * The second part is the set of cryptographic functions that are being usesd in 'main.py' -- AES, Blowfish and Fernet (there is also a MD5 function, but that is not being used)
+  * The second part is the set of cryptographic functions that are being used in 'main.py' -- AES, Blowfish and Fernet (there is also a MD5 function, but that is not being used)
   * This file also contains information regarding the libraries used, how the different functions operate, and links to external sources for the different types of algorithms
 * There are three (3) HTML files related to the project:
   * 'form.html' :arrow_right: the starting point of the website

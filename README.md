@@ -42,3 +42,7 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 * This will generate a local URL which, when pasted back into a new tab, will perform decryption of the encrypted message
   * Currently, the encrypted message is not displayed anywhere, it's stored in a variable resulting from the encryption process
 * Other functionality includes the ability to copy the generated URL via a button, and another button that will allow the user to encrypt another message (by bringing them back to the starting page)
+
+### Known issues/what needs to be done:
+
+* The URL generated for each encrypted message needs to be one-time use; currently it can be pasted over and over and display the decrypted message continuously

@@ -147,22 +147,22 @@ def decrypt(ciphertext, sheet):
 def md5_hash(plaintext):
 
 
-     ''' https://en.wikipedia.org/wiki/MD5 '''
+        ''' https://en.wikipedia.org/wiki/MD5 '''
                 
     
-    # Create a new instance of the hash object
-    hash = MD5.new()
+        # Create a new instance of the hash object
+        hash = MD5.new()
     
-    # Encode a message for hashing
-    message = plaintext.encode()
+        # Encode a message for hashing
+        message = plaintext.encode()
     
-    # The 'update' method continues the hashing by consuming the next chunk
-    hash.update(message)
+        # The 'update' method continues the hashing by consuming the next chunk
+        hash.update(message)
     
-    # The 'digest' method returns a digest of what's been hashed so far
-    digest = hash.digest()
+        # The 'digest' method returns a digest of what's been hashed so far
+        digest = hash.digest()
     
-    return digest
+        return digest
     
 
 # // AES Encryption //
@@ -212,7 +212,7 @@ def blowfish_encrypt(plaintext):
     # This appears to allow for plaintext input of any length
     obj = Blowfish.new(key, Blowfish.MODE_CFB, iv)
     
-    message = plaintext  # Removed .decode() from here to make it work in the site
+    message = plaintext  # Removed .decode() from here to make it work in the Bottle site
     
     ciphertext = obj.encrypt(message)
     
@@ -238,7 +238,7 @@ def fernet_encrypt(plaintext):
     key = Fernet.generate_key()
     f = Fernet(key)
     
-    message = plaintext  # Removed .decode() from here to make it work in the site
+    message = plaintext  # Removed .encode() from here to make it work in the Bottle site
     
     ciphertext = f.encrypt(message)
         

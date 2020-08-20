@@ -15,7 +15,11 @@ blowfish_cipher, blowfish_plain = blowfish_encrypt(message)
 print(blowfish_cipher)
 print(blowfish_plain)
 
-fernet_cipher, fernet_plain = fernet_encrypt(message)
+# The data passed into the Fernet function here needs to be bytes
+# If encoded as such in the 'crypt.py' file, the local Bottle site
+# will throw an error
+fernet_message = b"Testing this out"
+fernet_cipher, fernet_plain = fernet_encrypt(fernet_message)
 print(fernet_cipher)
 print(fernet_plain)
 

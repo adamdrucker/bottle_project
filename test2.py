@@ -7,14 +7,14 @@ from Crypto.Cipher import Blowfish
 from Crypto.Hash import MD5
 
 
-''' As noted in further comments below, these encryption methods work fine
-    as they currently are in this script, but the plaintext messages have
-    to be a multiple of the block size for each algorithm. I need to figure
-    out how to ensure that each of these functions will perform the prescribed
-    encryption on data of any length. (padding?)
+''' For certain block cipher encryption modes, the plaintext messages have
+    to be a multiple of the block size for each algorithm. To ensure that each
+    of these functions will perform the prescribed encryption on data of any length,
+    padding may be required for certain modes.
 
-    CFB mode, described in a comment under the AES section, seems to have resolved
-    this issue for now.
+    CFB mode, described in a comment under the AES section, turns the block cipher
+    into a steam cipher and eliminates the requirement of plaintext to be a multiple
+    in length of the block size, nor does it require padding on the plaintext input.
 '''
 
 
@@ -44,11 +44,6 @@ def md5_hash():
 md5_hash()
 
 # -----------
-
-''' The current AES encryption mode requires the input string to be a multiple
-    of 16 in length -- need to figure out how to ensure that a string of
-    anything length is processed in chunks until completion
-'''
 
 def aes_encrypt():
     # Create new AES cipher
@@ -83,12 +78,6 @@ aes_encrypt()
 
 # -----------
 
-''' The current Blowfish encryption mode requires the inpur string to be a
-    multiple of 8 in length -- need to figure out how to ensure that a
-    string of anything length is processed in chunks until completion
-'''
-
-# Encrypt works fine, decrypt coming out in bytes
 def blowfish_encrypt():
     
     # This prints a Blowfish encrypted message
@@ -111,7 +100,7 @@ def blowfish_encrypt():
     print("Decrypting Blowfish...")
     time.sleep(1)
     
-    # Not working, printing byte string
+    # A new object is required for decryption (similar to AES)
     obj2 = Blowfish.new(key, Blowfish.MODE_CFB, iv)
     dec = obj2.decrypt(ciphertext).decode('utf-8')
     #plaintext = dec.decode()
@@ -128,11 +117,11 @@ blowfish_encrypt()
 def fernet_encryption():
     
     # Encrypt with cryptography.fernet
-    
+    # Generate a key
     key = Fernet.generate_key()
     f = Fernet(key)
     
-    message = b"Poo poo potty"
+    message = b"Foo foo barbar"
     
     token = f.encrypt(message)
     

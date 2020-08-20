@@ -53,11 +53,8 @@ def do_encrypt():
     pc_url = pc.copy(link)
 
     
-    
     # Encrypt functions below
     # // 'message' passed as argument
-    # -------------------------------------  
-
     # Not ideal using globals, but it works for the time being
     global e_method
     global aes_plain
@@ -76,15 +73,9 @@ def do_encrypt():
     elif e_method == 'Fernet':
         fernet_cipher, fernet_plain = fernet_encrypt(message)
 
-    
-    # -------------------------------------
-
 
     # Vars passed into HTML
     variables = {"link": link, "url": url, "pc_url": pc_url, "e_method": e_method}
-
-    global foo
-    foo = variables
 
     return template("encryption_page.html", variables)
 
@@ -93,10 +84,8 @@ def do_encrypt():
 @get('/message/<url>')
 def show_message(url):
 
-    # Remove this?
     
-    # Decrypt functions below
-    # ------------------------------------
+    # Decrypt functions
     
     if e_method == 'AES':
         plaintext = aes_plain
@@ -106,11 +95,8 @@ def show_message(url):
         plaintext = fernet_plain
 
 
-    # ------------------------------------
-
 
     # Vars passed into HTML
-    # plaintext variable doesn't currently exist
     variables = {"message": plaintext}
     
     return template("decryption_page.html", variables)

@@ -18,6 +18,11 @@ import os
 
 '''
 
+# List to append the 'url' value to, this will be checked later on
+# If the URL generated during encryption exists in the list, the message can be decrypted
+# If it does not, the message will not be displayed
+approved_list = []
+
 
 # Function to enable copy button
 def copyFunc(link):
@@ -47,6 +52,7 @@ def do_encrypt():
 
     # This generates a randomized path for the URL for each message encrypted
     url = captcha()
+    approved_list.append(url)
     link = "localhost:8080/message/{url}".format(url=url)
 
     # Enabled the copy button to grab the URL
@@ -86,13 +92,19 @@ def show_message(url):
 
     
     # Decrypt functions
-    
-    if e_method == 'AES':
-        plaintext = aes_plain
-    elif e_method == 'Blowfish':
-        plaintext = blowfish_plain
-    elif e_method == 'Fernet':
-        plaintext = fernet_plain
+    if url in approved_list:
+        if e_method == 'AES':
+            plaintext = aes_plain
+        elif e_method == 'Blowfish':
+            plaintext = blowfish_plain
+        elif e_method == 'Fernet':
+            plaintext = fernet_plain
+
+        approved_list.pop()
+    else:
+        plaintext = 'Message not available'
+        
+        
 
 
 

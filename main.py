@@ -34,6 +34,10 @@ def copyFunc(link):
 def message_in():    
 
     algorithms = ['AES', 'Blowfish' , 'Fernet']
+    alg_desc = ['AES is a federally approved encryption algorithm. It has been adopted by agencies '
+                'such as the NSA for top secret information.', 'Blowfish is a general-purpose encryption '
+                'algorithm. It works well with short messages.'. 'Fernet encryption makes use of 128-bit '
+                'AES encryption, and is a good choice when working with the Python language.']
 
     # Items for drop down list
     variables = {"algorithms": algorithms}

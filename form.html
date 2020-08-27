@@ -4,7 +4,8 @@
 		<title>Encrypt a message!</title>
 	</head>
 	<body>
-		
+		<h2>Need to send a private message?</h2>
+		<h3>Enter your note and select an encryption method!</h3>
 		<form action="/encrypted" method="post">
 			<label for="message">Type your message below</label><br>
             <input name="message" type="text" />
@@ -20,5 +21,6 @@
 			</select>
 			</p>
 		</form>
+		<p>{{alg_desc}}</p>
 	</body>
 </html>

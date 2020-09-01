@@ -47,5 +47,6 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 
 * ~~The URL generated for each encrypted message needs to be one-time use; currently it can be pasted over and over and display the decrypted message continuously~~
 * The link is automatically copied to the clipboard without using the button to do initiate the copy function
+  * Does the HTML really call the Python func as it appears?
 * Refreshing the "old" link after a new one is generated will display the "new" message, even under the old {url}
   * This still occurs, but with the new implementation of the one-time-use list the decrypted message is no longer displayed

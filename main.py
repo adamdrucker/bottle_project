@@ -24,9 +24,7 @@ import os
 approved_list = []
 
 
-# Function to enable copy button
-def copyFunc(link):
-    pc.copy(link)
+
 
 
 # Entry page - 'http://localhost:8080/message'
@@ -34,9 +32,9 @@ def copyFunc(link):
 def message_in():    
 
     algorithms = ['AES', 'Blowfish' , 'Fernet']
-    alg_desc = ['AES is a federally approved encryption algorithm. It has been adopted by agencies such as the NSA for top secret information.',
-    'Blowfish is a general-purpose encryption algorithm. It works well with short messages.',
-    'Fernet encryption makes use of 128-bit AES encryption, and is a good choice when working with the Python language.']
+    alg_desc = [' is a federally approved encryption algorithm. It has been adopted by agencies such as the NSA for top secret information.',
+    ' is a general-purpose encryption algorithm. It works well with short messages.',
+    ' encryption makes use of 128-bit AES encryption, and is a good choice when working with the Python language.']
 
        
     # Items for drop down list
@@ -50,6 +48,10 @@ def message_in():
 # Page displayed after encryption
 @post('/encrypted')
 def do_encrypt():
+
+    # Function to enable copy button
+    def copyFunc(link):
+        pc.copy(link)
 
     # Input taken from user, encoded for encryption
     message = request.forms.get('message').encode()
@@ -108,8 +110,6 @@ def show_message(url):
     else:
         plaintext = 'Message not available'
         
-        
-
 
 
     # Vars passed into HTML

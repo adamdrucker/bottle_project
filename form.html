@@ -5,12 +5,11 @@
 	</head>
 	<body>
 		<h2>Need to send a private message?</h2>
-		<h3>Enter your note and select an encryption method!</h3>
+		<h3>Enter it below and select an encryption method!</h3>
 		<form action="/encrypted" method="post">
 			<label for="message">Type your message below</label><br>
             <input name="message" type="text" />
             <input value="Encrypt message" type="submit" />
-        
 			<p>
 			<label for="Encryption">Choose an algorithm:</label>
 			<br>
@@ -21,8 +20,10 @@
 			</select>
 			</p>
 		</form>
-		<p>{{alg_desc[0]}}</p>
-		<p>{{alg_desc[1]}}</p>
-		<p>{{alg_desc[2]}}</p>
+		<br>
+		<hr size=2>
+		<p><b>{{algorithms[0]}}</b>{{alg_desc[0]}}</p>
+		<p><b>{{algorithms[1]}}</b>{{alg_desc[1]}}</p>
+		<p><b>{{algorithms[2]}}</b>{{alg_desc[2]}}</p>
 	</body>
 </html>

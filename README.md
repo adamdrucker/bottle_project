@@ -41,7 +41,8 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 * An encryption algorithm can be chosen from the drop down menu
 * This will generate a local URL which, when pasted back into a new tab, will perform decryption of the encrypted message
   * Currently, the encrypted message is not displayed anywhere, it's stored in a variable resulting from the encryption process
-* Other functionality includes the ability to copy the generated URL via a button, and another button that will allow the user to encrypt another message (by bringing them back to the starting page)
+* Other functionality includes ~~the ability to copy the generated URL via a button~~, and another button that will allow the user to encrypt another message (by bringing them back to the starting page)
+* There is a feature in the code that appends the randomly generated URL value to a list, then checks that list when the link is first accessed. After this first accessing of the link, the list item is removed, and the message cannot be viewed a subsequent time.
 
 ### Known issues/what needs to be done:
 

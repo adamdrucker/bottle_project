@@ -51,3 +51,4 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
   * Does the HTML really call the Python func as it appears?
 * Refreshing the "old" link after a new one is generated will display the "new" message, even under the old {url}
   * This still occurs, but with the new implementation of the one-time-use list the decrypted message is no longer displayed
+* Currently in the process of adding inline CSS to __'form.html'__, will be replicated across other HTML files

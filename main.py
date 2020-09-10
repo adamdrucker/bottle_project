@@ -10,9 +10,9 @@ import os
 ''' The captcha_bot module imports a small program that generates a string of six pseudo-random
     characters that is only used in the URL for the encrypted method.
 
-    Fernet encryption is used via the cryptographyt module for Python.
+    Fernet encryption is used via the cryptography module for Python.
 
-    AES and Blowfish are used via the Crypto moduel for Python.
+    AES and Blowfish are used via the Crypto module for Python.
 
     Pyperclip is a module used to enable the copy button on the encryption page.
 
@@ -24,19 +24,17 @@ import os
 approved_list = []
 
 
-
-
-
 # Entry page - 'http://localhost:8080/message'
 @route('/message')
 def message_in():    
 
     algorithms = ['AES', 'Blowfish' , 'Fernet']
+    
+    # Brief descriptions for the algorithms, displayed on entry page
     alg_desc = [' is a federally approved encryption algorithm. It has been adopted by agencies such as the NSA for top secret information.',
     ' is a general-purpose encryption algorithm. It works well with short messages.',
     ' encryption makes use of 128-bit AES encryption, and is a good choice when working with the Python language.']
 
-       
     # Items for drop down list
     variables = {"algorithms": algorithms, "alg_desc": alg_desc}
 
@@ -76,8 +74,8 @@ def do_encrypt():
     # This successfully displays the encryption method selected from the dropdown
     e_method = request.forms.get('enc')
 
-    # The "encryption-name_cipher" variables contain the encrypted message,
-    # but are currently never used
+    # The "[encryption-name]_cipher" variables contain the encrypted message,
+    # but are currently not displayed anywhere
     if e_method == 'AES':
         aes_cipher, aes_plain = aes_encrypt(message)
     elif e_method == 'Blowfish':
@@ -86,7 +84,7 @@ def do_encrypt():
         fernet_cipher, fernet_plain = fernet_encrypt(message)
 
 
-    # Vars passed into HTML
+    # Variables passed into HTML
     variables = {"link": link, "url": url, "pc_url": pc_url, "e_method": e_method}
 
     return template("encryption_page.html", variables)

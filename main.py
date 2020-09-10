@@ -1,4 +1,4 @@
-from bottle import route, run, post, get, request, template, error
+from bottle import route, run, post, get, request, template, error, static_file
 from cryptography.fernet import Fernet
 from Crypto import Cipher
 from captcha_bot import captcha

@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link type="text/css" href="styles.css" rel="stylesheet">
 		<title>Encrypt a message!</title>
 	</head>
 	<body>
+		<!-- Inline styling -->
+		<style>
+		body {
+			background-color: lightblue;
+			}
+		
+		input, select, textarea {
+			background-color: lightgrey;
+			padding: 8px 16px;
+			}
+			
+		input[type=submit] {
+			background-color: grey;
+			padding: 8px 16px;
+			}
+		
+		</style>
+		
 		<h2>Need to send a private message?</h2>
 		<h3>Enter it below and select an encryption method!</h3>
 		<form action="/encrypted" method="post">

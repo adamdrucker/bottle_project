@@ -12,10 +12,10 @@ This project has been written and tested using Python 3.5.3 in IDLE on a Raspber
 
 ## Project information:
 
-* The project is dependent on the main Bottle file: 'bottle.py' (already in this repository)
+* The project is dependent on the main Bottle file: __'bottle.py'__ (already in this repository)
 * __'main.py'__ is the primary working file, this file will be ran as a Python script and will start a server listening on __port 8080__
-* This can be accessed in a browser at '_localhost:8080/message_' - this will bring you to the input prompt for a message at the beginning of the process
-* __'crypt.py'__ contains two sections:
+* This can be accessed in a browser at __'_localhost:8080/message_'__ - this will bring you to the input prompt for a message at the beginning of the process
+* __'crypt.py'__ file contains two sections:
   * The first part is referred to as "Legacy encryption code" -- in terms of my project, this was the first method used to perform encryption and it was based on a basic Caeser cipher that was modified :arrow_right: <sub>_this is no longer in use but is kept in the file for reference_</sub>
   * The second part is the set of cryptographic functions that are being used in __'main.py'__ -- AES, Blowfish and Fernet (there is also a MD5 function, but that is not being used)
   * This file also contains information regarding the libraries used, how the different functions operate, and links to external sources for the different types of algorithms
